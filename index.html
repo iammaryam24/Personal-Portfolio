@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maryam | Front-End Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👩‍💻</text></svg>">
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Background Animation -->
+    <div class="background"></div>
+    <div class="floating-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="glass-nav">
+        <div class="logo-container">
+            <h1 class="logo">MARYAM</h1>
+            <span class="logo-sub">Front-End Developer</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#home" class="nav-link active"><i class="fas fa-home"></i> Home</a>
+            <a href="#about" class="nav-link"><i class="fas fa-user"></i> About</a>
+            <a href="#skills" class="nav-link"><i class="fas fa-code"></i> Skills</a>
+            <a href="#projects" class="nav-link"><i class="fas fa-briefcase"></i> Projects</a>
+            <a href="#education" class="nav-link"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contact</a>
+            <a href="MY CV.pdf" class="nav-link" download><i class="fas fa-download"></i> CV</a>
+            <!-- Admin Login Button (Visible only when not logged in) -->
+            <button id="adminLoginBtn" class="nav-link admin-btn" style="display: none;">
+                <i class="fas fa-sign-in-alt"></i> Admin
+            </button>
+            <!-- Admin Dashboard Button (Visible when logged in) -->
+            <a href="#admin" id="adminDashboardBtn" class="nav-link admin-btn" style="display: none;">
+                <i class="fas fa-tachometer-alt"></i> Dashboard
+            </a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="close-menu" id="close-menu">&times;</button>
+        </div>
+        <a href="#home" class="mobile-link"><i class="fas fa-home"></i> Home</a>
+        <a href="#about" class="mobile-link"><i class="fas fa-user"></i> About</a>
+        <a href="#skills" class="mobile-link"><i class="fas fa-code"></i> Skills</a>
+        <a href="#projects" class="mobile-link"><i class="fas fa-briefcase"></i> Projects</a>
+        <a href="#education" class="mobile-link"><i class="fas fa-graduation-cap"></i> Education</a>
+        <a href="#contact" class="mobile-link"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="MY CV.pdf" class="mobile-link" download><i class="fas fa-download"></i> Download CV</a>
+        <button class="mobile-link" id="mobileAdminLoginBtn" style="display: none;">
+            <i class="fas fa-sign-in-alt"></i> Admin Login
+        </button>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal">&times;</span>
+            <h2><i class="fas fa-lock"></i> Admin Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <input type="email" id="adminEmail" placeholder="Admin Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="adminPassword" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-sign-in-alt"></i> Login
+                </button>
+                <div id="loginMessage" class="form-message"></div>
+            </form>
+            <p class="modal-note">Default: admin@maryam.com / admin123</p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h3 class="hero-subtitle">Hello, I'm</h3>
+                    <h1 class="hero-title">MARYAM</h1>
+                    <h2 class="hero-role">Front-End Developer</h2>
+                    <p class="hero-desc">Creative and detail-oriented Front End Developer passionate about designing modern, responsive, and visually appealing web applications.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn primary-btn"><i class="fas fa-rocket"></i> View Projects</a>
+                        <a href="#contact" class="btn secondary-btn"><i class="fas fa-paper-plane"></i> Hire Me</a>
+                        <a href="https://github.com/iammaryam24" target="_blank" class="btn github-btn">
+                            <i class="fab fa-github"></i> GitHub
+                        </a>
+                    </div>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number" id="projectCount">0</span>
+                            <span class="stat-text">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="messageCount">0</span>
+                            <span class="stat-text">Messages</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-text">Satisfaction</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-container">
+                        <div class="code-header">
+                            <div class="code-dots">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                            </div>
+                            <span>portfolio.js</span>
+                        </div>
+                        <div class="code-content">
+                            <pre><code>
+const developer = {
+    name: "Maryam",
+    role: "Front-End Developer",
+    skills: ["HTML5", "CSS3", "JavaScript"],
+    location: "Rawalpindi, Pakistan",
+    education: "BS Computer Science",
+    university: "Fatima Jinnah Women University",
+    graduation: "2027"
+};
+
+function createWebsite() {
+    return "Modern, responsive web experiences";
+}
+                            </code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About <span>Me</span></h2>
+            <div class="about-content glass-card">
+                <div class="about-text">
+                    <h3>Creative Front-End Developer</h3>
+                    <p>Creative and detail-oriented Front End Developer passionate about designing modern, responsive, and visually appealing web applications. Skilled in transforming ideas into interactive digital experiences using HTML, CSS, JavaScript, and modern UI techniques.</p>
+                    <p>A quick learner who loves solving problems and continuously improving technical and design skills.</p>
+                    <div class="about-highlights">
+                        <div class="highlight">
+                            <i class="fas fa-bolt"></i>
+                            <div>
+                                <h4>Fast Learner</h4>
+                                <p>Quick to adapt to new technologies</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-puzzle-piece"></i>
+                            <div>
+                                <h4>Problem Solver</h4>
+                                <p>Excellent debugging and critical thinking</p>
+                            </div>
+                        </div>
+                        <div class="highlight">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Team Player</h4>
+                                <p>Strong communication and leadership</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <div class="stat-number">3.8</div>
+                        <div class="stat-text">Current GPA</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <div class="stat-number" id="totalProjects">17+</div>
+                        <div class="stat-text">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code"></i>
+                        <div class="stat-number">100%</div>
+                        <div class="stat-text">Responsive</div>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-certificate"></i>
+                        <div class="stat-number">2</div>
+                        <div class="stat-text">Certifications</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title">My <span>Skills</span></h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>HTML5</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 95%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>CSS3 & SASS</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>JavaScript ES6+</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>React.js</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-tools"></i> Tools & Frameworks</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Bootstrap 5</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Tailwind CSS</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Git & GitHub</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Figma</span>
+                            <div class="skill-bar"><div class="skill-progress" style="width: 70%"></div></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skill-category glass-card">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Time Management</span>
+                        <span class="skill-tag">Effective Communication</span>
+                        <span class="skill-tag">Critical Thinking</span>
+                        <span class="skill-tag">Debugging</span>
+                        <span class="skill-tag">Creativity</span>
+                        <span class="skill-tag">Leadership</span>
+                        <span class="skill-tag">Problem-solving</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Learning</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="university">University</button>
+                <button class="filter-btn" data-filter="personal">Personal</button>
+                <button class="filter-btn" data-filter="ai">AI/ML</button>
+            </div>
+            <div class="projects-grid" id="projectsContainer">
+                <!-- Projects will be loaded dynamically from database -->
+            </div>
+            <div class="github-stats glass-card">
+                <h3><i class="fab fa-github"></i> GitHub Activity</h3>
+                <div class="github-info">
+                    <div class="github-stat">
+                        <i class="fas fa-code-branch"></i>
+                        <div>
+                            <h4>Repository</h4>
+                            <p>github.com/iammaryam24</p>
+                        </div>
+                    </div>
+                    <a href="https://github.com/iammaryam24" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> Visit My GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title">Education <span>Journey</span></h2>
+            <div class="timeline">
+                <div class="timeline-item glass-card">
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-content">
+                        <h3>Dar-e-Arqam School</h3>
+                        <p class="degree">Matriculation</p>
+                        <p class="details">Marks: 1060/1100 (A+ Grade)</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-content">
+                        <h3>Punjab College</h3>
+                        <p class="degree">Intermediate</p>
+                        <p class="details">Marks: 960/1100 (A Grade)</p>
+                    </div>
+                </div>
+                <div class="timeline-item glass-card">
+                    <div class="timeline-year">2023-2027</div>
+                    <div class="timeline-content">
+                        <h3>Fatima Jinnah Women University</h3>
+                        <p class="degree">BS Computer Science</p>
+                        <p class="details">Current CGPA: 3.8/4.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Contact <span>Me</span></h2>
+            <div class="contact-wrapper">
+                <div class="contact-info glass-card">
+                    <h3><i class="fas fa-info-circle"></i> Contact Info</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+92 XXX XXX XXX</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <h4>Email</h4>
+                                <p>maryamazmat444@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <h4>Location</h4>
+                                <p>Rawalpindi, Pakistan</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Available</h4>
+                                <p>Mon - Fri, 9AM - 6PM</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-btn"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-btn"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form glass-card">
+                    <h3><i class="fas fa-paper-plane"></i> Send Message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                            <i class="fas fa-tag"></i>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                            <i class="fas fa-comment-dots"></i>
+                        </div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <div id="form-message" class="form-message"></div>
+                    </form>
+                    <div class="email-status">
+                        <p class="note"><i class="fas fa-database"></i> Messages stored in database</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Dashboard (Visible only to admin) -->
+    <section id="admin" class="section admin-section" style="display: none;">
+        <div class="container">
+            <h2 class="section-title">Admin <span>Dashboard</span></h2>
+            <div class="dashboard">
+                <!-- Messages Panel -->
+                <div class="dashboard-card glass-card">
+                    <h3><i class="fas fa-envelope"></i> Messages <span class="badge" id="messageBadge">0</span></h3>
+                    <div class="messages-list" id="messagesList">
+                        <!-- Messages will be loaded here -->
+                        <p class="empty-state">No messages yet</p>
+                    </div>
+                    <button class="btn small-btn" onclick="loadMessages()">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                </div>
+
+                <!-- Projects Panel -->
+                <div class="dashboard-card glass-card">
+                    <h3><i class="fas fa-project-diagram"></i> Manage Projects</h3>
+                    <form id="addProjectForm">
+                        <div class="form-group">
+                            <input type="text" id="projectTitle" placeholder="Project Title" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="projectCategory" placeholder="Category (web, university, etc)" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="projectDescription" placeholder="Description" rows="3" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="projectIcon" placeholder="Icon class (fas fa-code)">
+                        </div>
+                        <button type="submit" class="btn small-btn">
+                            <i class="fas fa-plus"></i> Add Project
+                        </button>
+                    </form>
+                    <div class="projects-list" id="adminProjectsList">
+                        <!-- Projects will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Stats Panel -->
+                <div class="dashboard-card glass-card">
+                    <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalMessages">0</div>
+                            <div class="stat-label">Total Messages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalProjectsAdmin">0</div>
+                            <div class="stat-label">Total Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="unreadMessages">0</div>
+                            <div class="stat-label">Unread Messages</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="todayMessages">0</div>
+                            <div class="stat-label">Today's Messages</div>
+                        </div>
+                    </div>
+                    <button class="btn small-btn logout-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2025 Maryam | Front-End Developer | Built with 💚 using HTML, CSS & JavaScript</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-stats">
+                <span><i class="fas fa-eye"></i> <span id="visitCount">0</span> Visits</span>
+                <span><i class="fas fa-envelope"></i> <span id="footerMessageCount">0</span> Messages</span>
+                <span><i class="fas fa-project-diagram"></i> <span id="footerProjectCount">0</span> Projects</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="script.js"></script>
+</body>
+</html>
